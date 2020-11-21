@@ -4,7 +4,6 @@ const listGalleryRef = document.querySelector(".js-gallery");
 const lightboxRef = document.querySelector(".js-lightbox");
 const overlayRef = document.querySelector(".lightbox__overlay");
 const lightboxImageRef = document.querySelector(".lightbox__image");
-const galleryLinkRef = document.querySelector(".gallery__link");
 const btnCloseRef = document.querySelector(
   "button[data-action='close-lightbox']"
 );
@@ -23,7 +22,6 @@ function processGallery(item, index) {
   const linkGallery = document.createElement("a");
   linkGallery.classList.add("gallery__link");
   linkGallery.setAttribute("href", item.original);
-  // linkGallery.setAttribute("data-index", index);
 
   const pictureGallery = document.createElement("img");
   pictureGallery.classList.add("gallery__image");
@@ -47,7 +45,7 @@ function onOpenModal(e) {
   }
 }
 
-function onCloseModal(e) {
+function onCloseModal() {
   window.removeEventListener("keydown", onPressKey);
   lightboxRef.classList.remove("is-open");
   lightboxImageRef.src = "";
@@ -55,7 +53,7 @@ function onCloseModal(e) {
 
 function onOverlayClose(e) {
   if (e.target === e.currentTarget) {
-    onCloseModal(e);
+    onCloseModal();
   }
 }
 function onPressKey(e) {
