@@ -37,11 +37,12 @@ function processGallery(item, index) {
 
 function onOpenModal(e) {
   e.preventDefault();
-  window.addEventListener("keydown", onPressKey);
+
   if (e.target.nodeName === "IMG") {
     lightboxRef.classList.add("is-open");
     lightboxImageRef.src = e.target.dataset.source;
     lightboxImageRef.setAttribute("data-current", e.target.dataset.index);
+    window.addEventListener("keydown", onPressKey);
   }
 }
 
